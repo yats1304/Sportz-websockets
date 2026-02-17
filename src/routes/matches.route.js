@@ -18,7 +18,7 @@ matchRouter.get("/", async (req, res) => {
   if (!parsed.success) {
     res.status(400).json({
       error: "Inavlid query",
-      details: JSON.stringify(parsed.error),
+      details: parsed.error.issues,
     });
   }
 
@@ -39,16 +39,17 @@ matchRouter.get("/", async (req, res) => {
 
 matchRouter.post("/", async (req, res) => {
   const parsed = createMatchSchema.safeParse(req.body);
-  const {
-    data: { startTime, endTime, homeScore, awayScore },
-  } = parsed;
 
   if (!parsed.success) {
     res.status(400).json({
       error: "Inavlid payload",
-      details: JSON.stringify(parsed.error),
+      details: parsed.error.issues,
     });
   }
+
+  const {
+    data: { startTime, endTime, homeScore, awayScore },
+  } = parsed;
 
   try {
     const [event] = await db
@@ -67,7 +68,7 @@ matchRouter.post("/", async (req, res) => {
   } catch (error) {
     res.status(500).json({
       error: "Fialed to create match",
-      details: JSON.stringify(error),
+      details: parsed.error.issues,
     });
   }
 });
