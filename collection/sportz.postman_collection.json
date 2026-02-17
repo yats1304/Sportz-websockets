@@ -1,0 +1,109 @@
+{
+  "info": {
+    "_postman_id": "ed916d3e-5ac4-4376-8c51-29a70a4ebcce",
+    "name": "sportz",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "17407322"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "item": [
+        {
+          "name": "Health Check",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8000",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000"
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Matches",
+      "item": [
+        {
+          "name": "Matches List",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/matches",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "matches"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Add Match",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"sport\": \"football\",\r\n  \"homeTeam\": \"Yatish\",\r\n  \"awayTeam\": \"Dhwani\",\r\n  \"startTime\": \"2025-02-01T12:00:00.000Z\",\r\n  \"endTime\": \"2025-02-01T13:45:00.000Z\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/matches",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "matches"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "BASE_URL",
+      "value": ""
+    }
+  ]
+}
