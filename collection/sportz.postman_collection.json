@@ -17,9 +17,7 @@
             "url": {
               "raw": "http://localhost:8000",
               "protocol": "http",
-              "host": [
-                "localhost"
-              ],
+              "host": ["localhost"],
               "port": "8000"
             }
           },
@@ -37,12 +35,8 @@
             "header": [],
             "url": {
               "raw": "{{BASE_URL}}/matches",
-              "host": [
-                "{{BASE_URL}}"
-              ],
-              "path": [
-                "matches"
-              ]
+              "host": ["{{BASE_URL}}"],
+              "path": ["matches"]
             }
           },
           "response": []
@@ -54,7 +48,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"sport\": \"football\",\r\n  \"homeTeam\": \"Yatish\",\r\n  \"awayTeam\": \"Dhwani\",\r\n  \"startTime\": \"2025-02-01T12:00:00.000Z\",\r\n  \"endTime\": \"2025-02-01T13:45:00.000Z\"\r\n}",
+              "raw": "{\r\n  \"sport\": \"football\",\r\n  \"homeTeam\": \"Yatish\",\r\n  \"awayTeam\": \"Rohit\",\r\n  \"startTime\": \"2025-02-01T12:00:00.000Z\",\r\n  \"endTime\": \"2025-02-01T13:45:00.000Z\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -63,13 +57,50 @@
             },
             "url": {
               "raw": "{{BASE_URL}}/matches",
-              "host": [
-                "{{BASE_URL}}"
-              ],
-              "path": [
-                "matches"
+              "host": ["{{BASE_URL}}"],
+              "path": ["matches"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Commentary",
+      "item": [
+        {
+          "name": "Post Commentary by match id",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"minute\": 42,\r\n  \"sequence\": 120,\r\n  \"period\": \"3nd half\",\r\n  \"eventType\": \"goal\",\r\n  \"actor\": \"Alex Morgan\",\r\n  \"team\": \"FC Neon\",\r\n  \"message\": \"GOAL! Powerful finish from the edge of the box.\",\r\n  \"metadata\": { \"assist\": \"Sam Kerr\" },\r\n  \"tags\": [\"goal\", \"shot\"]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/matches/:id/commentary",
+              "host": ["{{BASE_URL}}"],
+              "path": ["matches", ":id", "commentary"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
               ]
             }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Commentary by match id",
+          "request": {
+            "method": "GET",
+            "header": []
           },
           "response": []
         }
@@ -83,9 +114,7 @@
         "type": "text/javascript",
         "packages": {},
         "requests": {},
-        "exec": [
-          ""
-        ]
+        "exec": [""]
       }
     },
     {
@@ -94,9 +123,7 @@
         "type": "text/javascript",
         "packages": {},
         "requests": {},
-        "exec": [
-          ""
-        ]
+        "exec": [""]
       }
     }
   ],
