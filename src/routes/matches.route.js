@@ -16,8 +16,8 @@ matchRouter.get("/", async (req, res) => {
   const parsed = listMatchesQuerySchema.safeParse(req.query);
 
   if (!parsed.success) {
-    res.status(400).json({
-      error: "Inavlid query",
+    return res.status(400).json({
+      error: "Invalid query",
       details: parsed.error.issues,
     });
   }
@@ -41,8 +41,8 @@ matchRouter.post("/", async (req, res) => {
   const parsed = createMatchSchema.safeParse(req.body);
 
   if (!parsed.success) {
-    res.status(400).json({
-      error: "Inavlid payload",
+    return res.status(400).json({
+      error: "Invalid payload",
       details: parsed.error.issues,
     });
   }
@@ -70,8 +70,8 @@ matchRouter.post("/", async (req, res) => {
     res.status(201).json({ data: event });
   } catch (error) {
     res.status(500).json({
-      error: "Fialed to create match",
-      details: parsed.error.issues,
+      error: "Failed to create match",
+      details: error.message,
     });
   }
 });
